@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Apuntes - Estadística No Paramétrica</title>
+  <meta name="description" content="Apuntes - Estadística No Paramétrica" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Apuntes - Estadística No Paramétrica" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Apuntes - Estadística No Paramétrica" />
+  
+  
+  
+
+<meta name="author" content="Víctor Erick Acaro Bustos" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="ecuacionario.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="probabilidad.html"><a href="probabilidad.html"><i class="fa fa-check"></i><b>1</b> Probabilidad</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="probabilidad.html"><a href="probabilidad.html#espacio-muestral"><i class="fa fa-check"></i><b>1.1</b> Espacio muestral</a></li>
+<li class="chapter" data-level="1.2" data-path="probabilidad.html"><a href="probabilidad.html#conjunto-potencia-o-partes-de-omega"><i class="fa fa-check"></i><b>1.2</b> Conjunto Potencia o Partes de <span class="math inline">\(\Omega\)</span></a></li>
+<li class="chapter" data-level="1.3" data-path="probabilidad.html"><a href="probabilidad.html#sigma-álgebra"><i class="fa fa-check"></i><b>1.3</b> Sigma Álgebra</a></li>
+<li class="chapter" data-level="1.4" data-path="probabilidad.html"><a href="probabilidad.html#evento"><i class="fa fa-check"></i><b>1.4</b> Evento</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="probabilidad.html"><a href="probabilidad.html#preguntas"><i class="fa fa-check"></i><b>1.4.1</b> Preguntas</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="probabilidad.html"><a href="probabilidad.html#álgebra-de-eventos"><i class="fa fa-check"></i><b>1.5</b> Álgebra de Eventos</a></li>
+<li class="chapter" data-level="1.6" data-path="probabilidad.html"><a href="probabilidad.html#espacio-medible"><i class="fa fa-check"></i><b>1.6</b> Espacio Medible</a></li>
+<li class="chapter" data-level="1.7" data-path="probabilidad.html"><a href="probabilidad.html#función-de-probabilidad"><i class="fa fa-check"></i><b>1.7</b> Función de Probabilidad</a></li>
+<li class="chapter" data-level="1.8" data-path="probabilidad.html"><a href="probabilidad.html#propiedades-que-cumple-la-función-de-probabilidad---axiomas-de-kolmogorov"><i class="fa fa-check"></i><b>1.8</b> Propiedades que cumple la Función de Probabilidad - Axiomas de Kolmogorov</a></li>
+<li class="chapter" data-level="1.9" data-path="probabilidad.html"><a href="probabilidad.html#espacio-de-probabilidad"><i class="fa fa-check"></i><b>1.9</b> Espacio de Probabilidad</a></li>
+<li class="chapter" data-level="1.10" data-path="probabilidad.html"><a href="probabilidad.html#teorema-de-equiprobabilidad"><i class="fa fa-check"></i><b>1.10</b> Teorema de Equiprobabilidad</a></li>
+<li class="chapter" data-level="1.11" data-path="probabilidad.html"><a href="probabilidad.html#proposición"><i class="fa fa-check"></i><b>1.11</b> Proposición</a></li>
+<li class="chapter" data-level="1.12" data-path="probabilidad.html"><a href="probabilidad.html#probabilidad-condicional"><i class="fa fa-check"></i><b>1.12</b> Probabilidad Condicional</a></li>
+<li class="chapter" data-level="1.13" data-path="probabilidad.html"><a href="probabilidad.html#independiencia-de-eventos"><i class="fa fa-check"></i><b>1.13</b> Independiencia de Eventos</a></li>
+<li class="chapter" data-level="1.14" data-path="probabilidad.html"><a href="probabilidad.html#probabilidad-total"><i class="fa fa-check"></i><b>1.14</b> Probabilidad Total</a>
+<ul>
+<li class="chapter" data-level="1.14.1" data-path="probabilidad.html"><a href="probabilidad.html#teorema-de-bayes"><i class="fa fa-check"></i><b>1.14.1</b> Teorema de Bayes</a></li>
+</ul></li>
+<li class="chapter" data-level="1.15" data-path="probabilidad.html"><a href="probabilidad.html#variables-aleatorias"><i class="fa fa-check"></i><b>1.15</b> Variables Aleatorias</a></li>
+<li class="chapter" data-level="1.16" data-path="probabilidad.html"><a href="probabilidad.html#ley-de-probabilidades-de-una-variable-aleatoria"><i class="fa fa-check"></i><b>1.16</b> Ley de Probabilidades de una Variable Aleatoria</a>
+<ul>
+<li class="chapter" data-level="1.16.1" data-path="probabilidad.html"><a href="probabilidad.html#tipos-de-variables-aleatorias"><i class="fa fa-check"></i><b>1.16.1</b> Tipos de Variables Aleatorias</a></li>
+</ul></li>
+<li class="chapter" data-level="1.17" data-path="probabilidad.html"><a href="probabilidad.html#propiedades-de-las-variables-aleatorias"><i class="fa fa-check"></i><b>1.17</b> Propiedades de las Variables Aleatorias</a></li>
+<li class="chapter" data-level="1.18" data-path="probabilidad.html"><a href="probabilidad.html#varianza-de-la-variable-aleatoria-x"><i class="fa fa-check"></i><b>1.18</b> Varianza de la Variable Aleatoria X</a>
+<ul>
+<li class="chapter" data-level="1.18.1" data-path="probabilidad.html"><a href="probabilidad.html#propiedades-de-la-varianza-aleatoria-de-x"><i class="fa fa-check"></i><b>1.18.1</b> Propiedades de la Varianza Aleatoria de X</a></li>
+</ul></li>
+<li class="chapter" data-level="1.19" data-path="probabilidad.html"><a href="probabilidad.html#principales-distribuciones-de-probabilidad-con-variable-aleatoria-discreta"><i class="fa fa-check"></i><b>1.19</b> Principales Distribuciones de Probabilidad con Variable Aleatoria Discreta</a>
+<ul>
+<li class="chapter" data-level="1.19.1" data-path="probabilidad.html"><a href="probabilidad.html#distribución-de-bernoulli"><i class="fa fa-check"></i><b>1.19.1</b> Distribución de Bernoulli</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ecuacionario.html"><a href="ecuacionario.html"><i class="fa fa-check"></i><b>2</b> Ecuacionario</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="ecuacionario.html"><a href="ecuacionario.html#distribución-de-bernoulli-1"><i class="fa fa-check"></i><b>2.1</b> Distribución de Bernoulli</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Apuntes - Estadística No Paramétrica</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Apuntes - Estadística No Paramétrica</h1>
+<p class="author"><em>Víctor Erick Acaro Bustos</em></p>
+<p class="date"><em>Abril, 18 del 2014</em></p>
+</div>
+<div id="probabilidad" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Probabilidad<a href="probabilidad.html#probabilidad" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="espacio-muestral" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Espacio muestral<a href="probabilidad.html#espacio-muestral" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Definición</strong> Sea <em>E</em> un experimento no determinístico, entonces <span class="math inline">\(\Omega\)</span> es el conjunto de todos los posibles resultados de <em>E</em>.</p>
+<p><strong>Ejemplos:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Experimento: lanzar una moneda
+<span class="math display">\[
+\Omega = \{cara, sello\}
+\]</span></li>
+<li>Experimento: lanzar un dado
+<span class="math display">\[
+\Omega = \{1,2,3,4,5,6\}
+\]</span></li>
+<li>Experimento: una rifa
+<span class="math display">\[
+\Omega = \{\textit{númeroos de los boletos vendidos}\}
+\]</span></li>
+</ol>
+</div>
+<div id="conjunto-potencia-o-partes-de-omega" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Conjunto Potencia o Partes de <span class="math inline">\(\Omega\)</span><a href="probabilidad.html#conjunto-potencia-o-partes-de-omega" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><span class="math display">\[
+\mathscr{P}(\Omega)=2^{\Omega}=\{A\mid A\subseteq \Omega\}
+\]</span></p>
+<p><strong>Ejemplos:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Experimento: lanzar una moneda
+<span class="math display">\[
+\mathscr{P}(\Omega)=2^{\Omega}=\{ \emptyset,\{cara\},\{sello\},\{cara, sello\} \}
+\]</span></li>
+</ol>
+<p><span class="math display">\[
+Cardinalidad \,\, \mathscr(\mathscr{P}(\Omega))=4
+\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Experimento: lanzar un dado
+<span class="math display">\[
+\mathscr{P}(\Omega)=2^{\Omega}=\{ \emptyset,\{1\},\{2\},\{3\}, .... ,\Omega,\emptyset \}
+\]</span></li>
+</ol>
+<p><span class="math display">\[
+Cardinalidad \,\, \mathscr(\mathscr{P}(\Omega))=64
+\]</span></p>
+</div>
+<div id="sigma-álgebra" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Sigma Álgebra<a href="probabilidad.html#sigma-álgebra" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Definición</strong> Sea <span class="math inline">\(\Omega\)</span> un conjunto fundamental de resultados de un experimento no determinístico específico, entonces,</p>
+<p><span class="math display">\[
+\mathscr{P}(\Omega) \textit{es una} \,\, sigma - álgebra
+\]</span></p>
+<p>que verifica las siguientes propiedades:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\Omega \in \mathscr{P}(\Omega)\)</span></li>
+<li><span class="math inline">\(\forall \in \mathscr{P}(\Omega) \Rightarrow A^{c} \in \mathscr{P}(\Omega)\)</span></li>
+<li><span class="math inline">\(\forall A_1,A_2, \ldots , A_n \in \mathscr{P}(\Omega) \Rightarrow \bigcup A_i \in \mathscr{P}(\Omega)\)</span></li>
+</ol>
+<p><strong>Ejemplo:</strong></p>
+<p>Sea <span class="math inline">\(\mathscr{F}=\{ \Omega, \emptyset \}\)</span> una familia de conjuntos. Probar que esta familia <span class="math inline">\(\mathscr{F}\)</span> es una <span class="math inline">\(\textit{sigma-álgebra}\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Se conoce que <span class="math inline">\(\Omega \in \mathscr{F}\)</span>, por tanto, se cumple la primera propiedad.</li>
+<li><span class="math inline">\(\Omega \in \mathscr{F} \Rightarrow \Omega^{c}= \emptyset \in \mathscr{F}\)</span> y <span class="math inline">\(\emptyset \in \mathscr{F} \Rightarrow \emptyset^{c} = \Omega \in \mathscr{F}\)</span>, por tanto, se cumple la segunda propiedad.</li>
+<li><span class="math inline">\(\Omega \cup \emptyset = \Omega \in \mathscr{F}\)</span></li>
+</ol>
+</div>
+<div id="evento" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Evento<a href="probabilidad.html#evento" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Definición</strong> Sea <span class="math inline">\(\Omega\)</span> un conjunto fundamental de resultados de un experimento no determinístico determinado y <span class="math inline">\(\mathscr{P}(\Omega)\)</span> un <span class="math inline">\(\textit{sigma-álgebra}\)</span>, entonces,
+<span class="math display">\[
+\forall A \in \mathscr{P}(\Omega)
+\]</span>
+es un Evento.</p>
+<div id="preguntas" class="section level3 hasAnchor" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> Preguntas<a href="probabilidad.html#preguntas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pregunta</th>
+<th>Respuesta</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>¿Qué es un <span class="math inline">\(\textit{sigma-álgebra}\)</span>?</td>
+<td>Familia de subconjuntos de <span class="math inline">\(\Omega\)</span></td>
+</tr>
+<tr class="even">
+<td>¿Qué se verifica al tratarse de un <span class="math inline">\(\textit{sigma-álgebra}\)</span>?</td>
+<td>Se verifica las operaciones de conjuntos.</td>
+</tr>
+<tr class="odd">
+<td>¿Qué es un Evento?</td>
+<td>Cualquier subconjunto de <span class="math inline">\(\Omega\)</span>, es un Evento. Es decir, todo subconjunto del conjunto fundamental de resultados, es un Evento</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="álgebra-de-eventos" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Álgebra de Eventos<a href="probabilidad.html#álgebra-de-eventos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\forall A,B \in \mathscr{P}(\Omega)\)</span>, es decir, <span class="math inline">\(A \cup B = \{ x \mid x \in A \vee x \in B\}\)</span></li>
+<li><span class="math inline">\(\forall A,B \in \mathscr{P}(\Omega)\)</span>, es decir, <span class="math inline">\(A \cap B = \{ x \mid x \in A \wedge x \in B\}\)</span></li>
+<li><span class="math inline">\(\forall A,B \in \mathscr{P}(\Omega)\)</span>, es decir, <span class="math inline">\(A - B = \{ x \mid x \in A \wedge x \notin B\}\)</span></li>
+<li><span class="math inline">\(\forall A \in \mathscr{P}(\Omega)\)</span>, es decir, <span class="math inline">\(A^{c} = \{ x \mid x \notin A \wedge x \in \Omega\}\)</span></li>
+<li><span class="math inline">\(\forall A,B \in \mathscr{P}(\Omega)\)</span>, es decir, <span class="math inline">\(A \triangle B = (A-B) \cup (B-A) \equiv A \triangle B = (A \cup B) - (A \cap B)\)</span></li>
+<li><span class="math inline">\(\forall A \in \mathscr{P}(\Omega)\)</span>, es decir, <span class="math inline">\((A \cup B)=A^c \cap B^c\)</span></li>
+</ol>
+</div>
+<div id="espacio-medible" class="section level2 hasAnchor" number="1.6">
+<h2><span class="header-section-number">1.6</span> Espacio Medible<a href="probabilidad.html#espacio-medible" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Definición</strong> Sea <span class="math inline">\(\Omega\)</span> un conjunto fundamental de resultados de un experimento no terminístico y <span class="math inline">\(\mathscr{P}(\Omega)\)</span>, entonces, la dupla
+<span class="math display">\[
+(\Omega, \mathscr{P}(\Omega))
+\]</span>
+es un Espacio Medible. Donde: <span class="math inline">\(\Omega\)</span> es el Conjunto fundamental de resultados y <span class="math inline">\(\mathscr{P}(\Omega) \,\, \textit{sigma-álgebra}\)</span></p>
+</div>
+<div id="función-de-probabilidad" class="section level2 hasAnchor" number="1.7">
+<h2><span class="header-section-number">1.7</span> Función de Probabilidad<a href="probabilidad.html#función-de-probabilidad" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Definición</strong> Sea <span class="math inline">\((\Omega, \mathscr{P}(\Omega))\)</span> un espacio medible, etnonces, la función definida por
+<span class="math display">\[
+\mathbf{P}: \mathscr{P}(\Omega) \rightarrow [0,1]
+\]</span>
+<span class="math display">\[
+\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, A \mapsto \mathbf{P}(A)
+\]</span></p>
+</div>
+<div id="propiedades-que-cumple-la-función-de-probabilidad---axiomas-de-kolmogorov" class="section level2 hasAnchor" number="1.8">
+<h2><span class="header-section-number">1.8</span> Propiedades que cumple la Función de Probabilidad - Axiomas de Kolmogorov<a href="probabilidad.html#propiedades-que-cumple-la-función-de-probabilidad---axiomas-de-kolmogorov" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\mathscr{P}(\Omega)=1\)</span>, es decir, <span class="math inline">\(\Omega\)</span> evento seguro</li>
+<li><span class="math inline">\(\mathscr{P}(\emptyset)=0\)</span>, es decir, <span class="math inline">\(\emptyset\)</span> evento imposible</li>
+<li><span class="math inline">\(\mathscr{P}(A^c)=1-\mathscr{P}(A)\)</span></li>
+<li><span class="math inline">\(\forall A,B \in \mathscr{P}(\Omega)\)</span>
+<span class="math display">\[
+\mathbf{P}(A \cup B)=\mathbf{P}(A)+\mathbf{P}(B)
+\]</span>
+si y solo si, <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son independientes,
+<span class="math display">\[
+\mathbf{P}(A \cup B)=\mathbf{P}(A)+\mathbf{P}(B)-\mathbf{P}(A \cap B)
+\]</span>
+si y solo si, <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> no son independientes, o dependientes.</li>
+</ol>
+<p><strong>Ejercicio:</strong></p>
+<p>Sea <span class="math inline">\(A,B \in \mathscr{P}(\Omega)\)</span> donde <span class="math inline">\(A = \emptyset\)</span> y <span class="math inline">\(B \neq \emptyset\)</span>. Calcular la probabilidad de <span class="math inline">\(A \cap B\)</span>.</p>
+<p>Tenemos:</p>
+<p><span class="math display">\[
+A \cap B = \emptyset \cap B = \emptyset
+\]</span></p>
+<p>finalmente,</p>
+<p><span class="math display">\[
+\mathbf{P}(A \cap B) = \mathbf{P}(\emptyset) = 0
+\]</span></p>
+</div>
+<div id="espacio-de-probabilidad" class="section level2 hasAnchor" number="1.9">
+<h2><span class="header-section-number">1.9</span> Espacio de Probabilidad<a href="probabilidad.html#espacio-de-probabilidad" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Definición</strong> Sea <span class="math inline">\((\Omega, \mathscr{P}(\Omega))\)</span> un espacio medible y <span class="math inline">\(\mathbf{P}\)</span> la función de probabilidad definida en este espacio, entonces, la tripleta</p>
+<p><span class="math display">\[
+(\Omega, \mathscr{P}(\Omega), \mathbf{P})
+\]</span></p>
+<p>se le llama, Espacio de Probabilidad.</p>
+<p><strong>Ejemplo:</strong></p>
+<ul>
+<li>Experimento: lanzar una moneda</li>
+</ul>
+<p><span class="math display">\[
+\Omega = \{cara, sello \}
+\]</span></p>
+<p><span class="math display">\[
+\mathscr{P}(\Omega) = \{\Omega, \emptyset, \{cara\}, \{sello\} \}
+\]</span></p>
+<p>siendo,</p>
+<p><span class="math display">\[
+(\Omega, \mathscr{P}(\Omega), \mathbf{P})
+\]</span></p>
+<p>un espacio de probabilidad,</p>
+<p><span class="math display">\[
+\mathbf{P}: \mathscr{P}(\Omega) \rightarrow [0,1]
+\]</span></p>
+<p>por Axiomas de Kolmogorov,</p>
+<p><span class="math display">\[
+\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \Omega \mapsto \mathbf{P}(\Omega) = 1
+\]</span>
+<span class="math display">\[
+\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \emptyset \mapsto \mathbf{P}(\emptyset) = 0
+\]</span>
+<span class="math display">\[
+\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \{cara\} \mapsto \mathbf{P}(\{cara\}) = \frac{1}{2}
+\]</span>
+<span class="math display">\[
+\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \{sello\} \mapsto \mathbf{P}(\{sello\}) = \frac{1}{2}
+\]</span></p>
+</div>
+<div id="teorema-de-equiprobabilidad" class="section level2 hasAnchor" number="1.10">
+<h2><span class="header-section-number">1.10</span> Teorema de Equiprobabilidad<a href="probabilidad.html#teorema-de-equiprobabilidad" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Definición</strong> Sea <span class="math inline">\((\Omega, \mathscr{P}(\Omega), \mathbf{P})\)</span> un espacio de probabilidad donde <span class="math inline">\(\Omega = \{x_1,x_2, \dotsc , x_n\}\)</span> y <span class="math inline">\(\mathbf{P}(\{x_1\})=\mathbf{P}(\{x_2\})= \dotsc =\mathbf{P}(\{x_n\})\)</span>, entonces,<span class="math inline">\(\forall i = \overline{i,n} \mid \mathbf{P}(\{x_i\}) = \frac{1}{n}\)</span>.</p>
+<p><span class="math inline">\(\underline{Demostración:}\)</span></p>
+<p>tenemos, <span class="math inline">\(\Omega = \{x_1,x_2, \dotsc , x_n\}, \mathscr{C}(\Omega) = n\)</span> y <span class="math inline">\(\mathscr{P}(\Omega) = \mathscr{P}(\{x_1,x_2, \dotsc , x_n\})\)</span></p>
+<p>mediante,
+<span class="math display">\[
+\mathscr{P}(\Omega) = \mathscr{P}(\{x_1,x_2, \dotsc , x_n\}) \equiv 1 = \mathscr{P}(\{x_1\}\cup\{x_2\}\cup  \dotsc \cup \{x_n\})
+\]</span></p>
+<p>como, <span class="math inline">\(\{x_1,x_2, \dotsc , x_n\}\)</span> son independientes entre sí,</p>
+<p><span class="math display">\[
+\mathscr{P}(\Omega) = \mathscr{P}(\{x_1,x_2, \dotsc , x_n\}) \equiv 1 = \mathscr{P}(\{x_1\} + \mathscr{P}(\{x_2\} + \dotsc + \mathscr{P}(\{x_n\}
+\]</span></p>
+<p><span class="math display">\[
+\mathscr{P}(\Omega) = \mathscr{P}(\{x_1,x_2, \dotsc , x_n\}) \equiv \forall i = \overline{i,n} 1 : n \mathscr{P}(\{x_n\}
+\]</span></p>
+<p><span class="math display">\[
+\mathscr{P}(\Omega) = \mathscr{P}(\{x_1,x_2, \dotsc , x_n\}) \equiv \mathscr{P}(\{x_i\})=\frac{1}{n}
+\]</span></p>
+</div>
+<div id="proposición" class="section level2 hasAnchor" number="1.11">
+<h2><span class="header-section-number">1.11</span> Proposición<a href="probabilidad.html#proposición" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Sea <span class="math inline">\((\Omega, \mathscr{P}(\Omega), \mathbf{P})\)</span> un Espacio de Probabilidad, entonces,
+<span class="math display">\[
+\forall A \in \mathscr{P}(\Omega) \mid A=\{x_1,x_2, \ldots, x_k\} \,\textit{y}\,\, \Omega=\{x_1,x_2, \ldots, x_n\}
+\]</span>
+donde, <span class="math inline">\(k \leq n\)</span>, se tiene que
+<span class="math display">\[
+\mathbf{P}(A)=\frac{\mathscr{C}(A)}{\mathscr{C}(\Omega)}=\frac{k}{n}
+\]</span></p>
+<p><strong>Ejercicio:</strong>
+Ejemplo: lanzar dos monedas. Calcular, la probabilidad de tener al menos una cara.
+<span class="math inline">\(\underline{Tenemos:}\)</span>
+<span class="math display">\[
+\Omega=\{(cara, cara)(sello, sello)(cara, sello)(sello, cara)\}
+\]</span>
+<span class="math display">\[
+\mathscr{P}(\Omega)=\{\Omega, \emptyset, \{(cara, cara)(sello, cara)\},\{(cara, cara)\}, \ldots\}
+\]</span>
+<span class="math display">\[
+\mathscr{C}(\Omega)=2^4=16
+\]</span>
+<span class="math inline">\(\underline{Ahora}\)</span>
+<span class="math display">\[
+A=\{\textit{Obtener al menos una cara}\}
+\]</span>
+<span class="math display">\[
+A=\{(cara, cara)(cara, sello)\}
+\]</span>
+<span class="math display">\[
+\mathscr{C}(A)=2^2=4
+\]</span>
+<span class="math inline">\(\underline{Finalmente,}\)</span>
+<span class="math display">\[
+\mathbf{P}(A)=\frac{\mathscr{C}(A)}{\mathscr{C}(\Omega)}=\frac{2}{4}=\frac{1}{2}
+\]</span></p>
+</div>
+<div id="probabilidad-condicional" class="section level2 hasAnchor" number="1.12">
+<h2><span class="header-section-number">1.12</span> Probabilidad Condicional<a href="probabilidad.html#probabilidad-condicional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Definición</strong> Sea <span class="math inline">\((\Omega, \mathscr{P}(\Omega), \mathbf{P})\)</span> un Espacio de Probabilidad, entonces,
+<span class="math display">\[
+\forall A,B \in \mathscr{P}(\Omega): \mathbf{P}(A\mid B)=\frac{\mathbf{P}(A\cap B)}{\mathbf{P}(B)}
+\]</span>
+donde <span class="math inline">\(\mathbf{P}(B)\neq 0\)</span>
+<span class="math display">\[
+\,\, \mathbf{P}(B\mid A)=\frac{\mathbf{P}(A\cap B)}{\mathbf{P}(A)}
+\]</span>
+donde <span class="math inline">\(\mathbf{P}(A)\neq 0\)</span></p>
+<p><em>Al tener Probabilidad Condicionada, nos podemos preguntar:</em> <strong>¿Cuál es la Probabilidad de que exista algo de A en B?</strong></p>
+<p><strong>Ejercicio:</strong>
+Sea <span class="math inline">\((\Omega, \mathscr{P}(\Omega), \mathbf{P})\)</span> un Espacio de Probabilidad, entonces. Si <span class="math inline">\(A = \emptyset, B\neq \emptyset\)</span>. Calcular la probabilidad conjunta de <span class="math inline">\(\mathbf{P}(A\mid B)\)</span> y <span class="math inline">\(\mathbf{P}(B\mid A)\)</span>.
+<span class="math display">\[
+\mathbf{P}(A\mid B)=\frac{\mathbf{P}(A\cap B)}{\mathbf{P}(B)}=\frac{\mathbf{P}(\emptyset)}{\mathbf{P}(B)}=0
+\]</span>
+<span class="math display">\[
+\mathbf{P}(B\mid A)=\frac{\mathbf{P}(A\cap B)}{\mathbf{P}(A)}=\frac{\mathbf{P}(\emptyset)}{\mathbf{P}(\emptyset)}=\frac{0}{0}= \textbf{Ind.}
+\]</span></p>
+</div>
+<div id="independiencia-de-eventos" class="section level2 hasAnchor" number="1.13">
+<h2><span class="header-section-number">1.13</span> Independiencia de Eventos<a href="probabilidad.html#independiencia-de-eventos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Definición</strong> Sea <span class="math inline">\((\Omega, \mathscr{P}(\Omega), \mathbf{P})\)</span> un Espacio de Probabilidad. Donde, si <span class="math inline">\(\mathbf{P}(A\cap B)=\mathbf{P}(A)\cdot \mathbf{P}(B)\)</span>, entonces, <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son eventos independientes.</p>
+</div>
+<div id="probabilidad-total" class="section level2 hasAnchor" number="1.14">
+<h2><span class="header-section-number">1.14</span> Probabilidad Total<a href="probabilidad.html#probabilidad-total" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div style="text-align:center;">
+<div class="float">
+<img src="probabilidad_total.jpg" alt="Teorema Probabilidad Total" />
+<div class="figcaption"><small>Teorema Probabilidad Total</small></div>
+</div>
+</div>
+<p><strong>Definición</strong> Sea <span class="math inline">\((\Omega, \mathscr{P}(\Omega), \mathbf{P})\)</span>, tal que, <span class="math inline">\(\Omega = \bigcup A_i \,\,\)</span>; <span class="math inline">\(\,\forall A_i,A_j: A_i \cap A_j=\emptyset\,\, y\,\, i \neq j\)</span>. Probemos, <span class="math inline">\(\mathbf{P}(B)\)</span>.
+<span class="math inline">\(\underline{Tomemos:}\)</span>
+<span class="math display">\[
+\mathbf{P}(B)=\mathbf{P}((B\cap A_1)\cup(B\cap A_2)\cup \cdots \cup (B\cap A_n))
+\]</span>
+como, sabemos que los eventos <span class="math inline">\(\forall A_i \mid i:\overline{i,n}\)</span> son independientes,
+<span class="math display">\[
+\mathbf{P}(B)=\mathbf{P}(B\cap A_1)+\mathbf{P}(B\cap A_2)+ \cdots + \mathbf{P}(B\cap A_n)
+\]</span>
+tengamos en cuenta lo siguiente,
+<span class="math display">\[
+\mathbf{P}(B\mid A_1)=\frac{\mathbf{P}(B\cap A_1)}{\mathbf{P}(A_1)}
+\]</span></p>
+<p><span class="math display">\[
+\mathbf{P}(B\mid A_2)=\frac{\mathbf{P}(B\cap A_2)}{\mathbf{P}(A_2)}
+\]</span></p>
+<p><span class="math display">\[
+\vdots
+\]</span></p>
+<p><span class="math display">\[
+\mathbf{P}(B\mid A_n)=\frac{\mathbf{P}(B\cap A_n)}{\mathbf{P}(A_n)}
+\]</span>
+por tanto,
+<span class="math display">\[
+\mathbf{P}(B)=\mathbf{P}(B\mid A_1)\cdot \mathbf{P}(A_1)+\mathbf{P}(B\mid A_2) \cdot \mathbf{P}(A_2)+ \cdots +\mathbf{P}(B\mid A_n)\cdot \mathbf{P} (A_n)
+\]</span>
+Finalmente,
+<span class="math display">\[
+\mathbf{P}(B)=\sum_{i=1}^{n}{\mathbf{P}(B\mid A_i) \cdot \mathbf{P}(A_i)}
+\]</span></p>
+<p><strong>Ejemplo:</strong>
+Experimento, al azar un estudiante de séptimo semestre paralelo 1. Calcular la Probabilidad de que es estudiante viva en el Sur de la ciudad. Sabemos que, estudiantes hombres son 7 y mujeres 8. Además, sabemos que el númeroo de hombres que vive en el Sur es de 3 y el númeroo de muejeres que vive en el Sur es 2. Consideremos el Evento <span class="math inline">\(B=\{\textit{Estudiante que vive en el Sur de la ciudad}\}\)</span>.</p>
+<p><span class="math inline">\(\underline{Tenemos:}\)</span></p>
+<p><span class="math display">\[
+\mathbf{P}=\sum_{i=1}^{2}{\mathbf{P}(B \mid A_i)\cdot \mathbf{P}(A_i)}
+\]</span>
+es decir,
+<span class="math display">\[
+\mathbf{P}=\mathbf{P}(B \mid H)\cdot \mathbf{P}(H)+\mathbf{P}(B \mid M)\cdot \mathbf{P}(M)
+\]</span>
+recordemos que, <span class="math inline">\(\mathbf{P}(B \mid H)\)</span> es la probabilidad del Evento B dado que sea hombre, sino también, la probabilidad de que exista una persona que viva en el Sur y este debe ser hombre.
+<span class="math display">\[
+\mathbf{P}=\frac{3}{7}\cdot \frac{7}{15}+\frac{2}{8}\cdot \frac{8}{15}
+\]</span></p>
+<p><span class="math display">\[
+\mathbf{P}=\frac{1}{3}
+\]</span>
+por tanto, hay <span class="math inline">\(\frac{1}{3}\)</span> de probabilidad, que al seleccionar de forma aleatoria un estudiante este viva en el Sur y sea hombre.</p>
+<div id="teorema-de-bayes" class="section level3 hasAnchor" number="1.14.1">
+<h3><span class="header-section-number">1.14.1</span> Teorema de Bayes<a href="probabilidad.html#teorema-de-bayes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Usemos la gráfica anterior.</p>
+<div style="text-align:center;">
+<div class="float">
+<img src="probabilidad_total.jpg" alt="Teorema Probabilidad Total" />
+<div class="figcaption"><small>Teorema Probabilidad Total</small></div>
+</div>
+</div>
+<p>Ahora, para conocer a Bayes. Se nos pide hallar <span class="math inline">\(\mathbf{P}(A_j\mid B)\)</span> donde <span class="math inline">\(i \neq j\)</span>. Y recordemos que los Eventos son independientes.</p>
+<p><span class="math inline">\(\underline{\textit{Samemos que:}}\)</span>
+<span class="math display">\[
+\mathbf{P}(A_j\mid B)=\frac{\mathbf{P}(A_{j}\,\cap B)}{\mathbf{P}(B)}
+\]</span>
+y de Probabilidad Total, tenemos
+<span class="math display">\[
+\mathbf{P}(A_j\mid B)=\frac{\mathbf{P}(A_{j}\cap B)}{\sum_{i=1}^{n}{\mathbf{P}(B \mid A_i)\cdot \mathbf{P}(A_i)}}
+\]</span>
+finalmente, junto a <span class="math inline">\(\mathbf{P}(B\mid A_j)=\frac{\mathbf{P}(A_{j}\,\cap B)}{\mathbf{P}(A_j)}\)</span>
+<span class="math display">\[
+\mathbf{P}(A_j\mid B)=\frac{\mathbf{P}(B\mid A_j)\cdot \mathbf{P}(A_j) }{\sum_{i=1}^{n}{\mathbf{P}(B \mid A_i)\cdot \mathbf{P}(A_i)}}
+\]</span></p>
+<p><strong>Experimento:</strong> Calcular la probabilidad de que al azar se obtenga a una estudiante que viva en el Sur de la ciudad. Recordemos el ejercicio anterior, <span class="math inline">\(B=\{\textit{Estudiante que vive en el Sur de la ciudad}\}\)</span>.</p>
+<p><span class="math display">\[
+\mathbf{P}(M\mid B)=\frac{\mathbf{P}(M\,\cap B)}{\mathbf{P}(B)}
+\]</span></p>
+<p><span class="math display">\[
+\mathbf{P}(M\mid B)=\frac{\mathbf{P}(M\mid B)\cdot \mathbf{P}(M)}{\mathbf{P}(B)}
+\]</span></p>
+<p><span class="math display">\[
+\mathbf{P}(M\mid B)=\frac{\frac{2}{8}\cdot\frac{8}{15}}{\frac{1}{3}}
+\]</span></p>
+<p><span class="math display">\[
+\mathbf{P}(M\mid B)=\frac{2}{5}
+\]</span></p>
+</div>
+</div>
+<div id="variables-aleatorias" class="section level2 hasAnchor" number="1.15">
+<h2><span class="header-section-number">1.15</span> Variables Aleatorias<a href="probabilidad.html#variables-aleatorias" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Definición</strong> Sea <span class="math inline">\((\Omega, \mathscr{P}(\Omega), \mathbf{P})\)</span> un Espacio de Probabilidad, entonces, la función definida por:
+<span class="math display">\[
+X: \Omega \rightarrow \mathbb{R}_x \subseteq \mathbb{R}
+\]</span>
+<span class="math display">\[
+\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \omega \mapsto X(\omega)
+\]</span>
+es una Variable Aleatoria.<br />
+<strong>Ejemplo</strong><br />
+Experimento: lanzar dos monedas<br />
+<span class="math inline">\(\underline{Tenemos:}\)</span><br />
+<span class="math display">\[
+\Omega=\{(cara, cara)(sello, sello)(cara, sello)(sello, cara)\}
+\]</span>
+<span class="math display">\[
+X: \textit{Mide el númeroo de caras}
+\]</span>
+recordemos que <span class="math inline">\(X\)</span>, tiene una naturaleza, es lo que indica su variable: edad, peso, etc.
+<span class="math display">\[
+X: \Omega \rightarrow \mathbb{R}_x \subseteq \mathbb{R}
+\]</span>
+<span class="math display">\[
+\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, (cara, cara) \mapsto X((cara, cara)) = 2
+\]</span>
+<span class="math display">\[
+\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, (cara, sello) \mapsto X((cara, sello)) = 1
+\]</span>
+<span class="math display">\[
+\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, (sello, cara) \mapsto X((sello, cara)) = 1
+\]</span>
+<span class="math display">\[
+\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, (sello, sello) \mapsto X((sello, sello)) = 0
+\]</span></p>
+</div>
+<div id="ley-de-probabilidades-de-una-variable-aleatoria" class="section level2 hasAnchor" number="1.16">
+<h2><span class="header-section-number">1.16</span> Ley de Probabilidades de una Variable Aleatoria<a href="probabilidad.html#ley-de-probabilidades-de-una-variable-aleatoria" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Definición</strong> Sea <span class="math inline">\((\Omega, \mathscr{P}(\Omega), \mathbf{P})\)</span> un Espacio de Probabilidad y <span class="math inline">\(X\)</span> una Variable Aleatoria definida en este espacio, entonces, la función definida por
+<span class="math display">\[
+f: \mathbb{R}_x \rightarrow [0, 1]
+\]</span>
+<span class="math display">\[
+\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, x \mapsto f(x)
+\]</span>
+se le conoce como la Ley de Probabilidad de la Variable Aleatoria <span class="math inline">\(X\)</span>.</p>
+<div id="tipos-de-variables-aleatorias" class="section level3 hasAnchor" number="1.16.1">
+<h3><span class="header-section-number">1.16.1</span> Tipos de Variables Aleatorias<a href="probabilidad.html#tipos-de-variables-aleatorias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Variable Aleatoria Discreta:</strong> Si <span class="math inline">\(\mathbb{R}_x\)</span> es un conjunto finito o infinito NUMERABLE.<br />
+<strong>Variable Aleatoria Continua:</strong> Si <span class="math inline">\(\mathbb{R}_x\)</span> es un conjunto finito o infinito NO NUMERABLE.</p>
+</div>
+</div>
+<div id="propiedades-de-las-variables-aleatorias" class="section level2 hasAnchor" number="1.17">
+<h2><span class="header-section-number">1.17</span> Propiedades de las Variables Aleatorias<a href="probabilidad.html#propiedades-de-las-variables-aleatorias" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Si <span class="math inline">\(X\)</span> es una <em>Variable Aleatoria Discreta</em>,</p>
+<ul>
+<li><span class="math inline">\(\sum_{i=1}^{n}{f(x_i)=1}\)</span></li>
+<li><span class="math inline">\(0\leq f(x_i) \leq 1\)</span></li>
+</ul>
+<p>Si <span class="math inline">\(X\)</span> es una <em>Variable Aleatoria Continua</em>,</p>
+<ul>
+<li><span class="math inline">\(\int_{- \infty}^{\infty}{f(x)\, dx=1}\)</span></li>
+<li><span class="math inline">\(0\leq f(x) \leq 1\)</span></li>
+</ul>
+<p><span class="math inline">\(\underline{\textit{Caso Discreto}}\)</span><br />
+<strong>Ejemplo</strong><br />
+Experimento: lanzar dos monedas<br />
+<span class="math inline">\(\underline{Tenemos:}\)</span><br />
+<span class="math display">\[
+\Omega=\{(cara, cara)(sello, sello)(cara, sello)(sello, cara)\}
+\]</span>
+<span class="math display">\[
+X: \textit{Mide el número de caras}
+\]</span></p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(\Omega\)</span></th>
+<th><span class="math inline">\(X\)</span></th>
+<th>Ley de Probabilidades</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\((cara, cara)\)</span></td>
+<td>2</td>
+<td><span class="math inline">\(\mathbf{P}(X=0)=\frac{1}{4}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\((sello, cara)\)</span></td>
+<td>1</td>
+<td><span class="math inline">\(\mathbf{P}(X=1)=\frac{1}{4}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\((cara, sello)\)</span></td>
+<td>1</td>
+<td><span class="math inline">\(\mathbf{P}(X=1)=\frac{1}{4}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\((sello, sello)\)</span></td>
+<td>0</td>
+<td><span class="math inline">\(\mathbf{P}(X=2)=\frac{1}{4}\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="probabilidad.html#cb1-1" tabindex="-1"></a><span class="co"># Generando los valores</span></span>
+<span id="cb1-2"><a href="probabilidad.html#cb1-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb1-3"><a href="probabilidad.html#cb1-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">4</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">4</span>)</span>
+<span id="cb1-4"><a href="probabilidad.html#cb1-4" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="probabilidad.html#cb1-5" tabindex="-1"></a><span class="co"># Generando la gráfica</span></span>
+<span id="cb1-6"><a href="probabilidad.html#cb1-6" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">main =</span> <span class="st">&quot; Representación Ley de Probabilidades&quot;</span>,</span>
+<span id="cb1-7"><a href="probabilidad.html#cb1-7" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Valores - Conjunto Fundamental de Resultados dado X&quot;</span>,</span>
+<span id="cb1-8"><a href="probabilidad.html#cb1-8" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Probabilidad&quot;</span>,</span>
+<span id="cb1-9"><a href="probabilidad.html#cb1-9" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">&quot;b&quot;</span>, <span class="at">col =</span> <span class="st">&quot;black&quot;</span>)</span>
+<span id="cb1-10"><a href="probabilidad.html#cb1-10" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fl">0.5</span>, <span class="at">lty =</span> <span class="dv">3</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<p><img src="APUNTES-NO-PARAMETRICA_files/figure-html/Gr%C3%A1fica%20-%20Ley%20de%20Probabilidades-1.png" width="672" /></p>
+<p><span class="math inline">\(\underline{\textit{Caso Continuo}}\)</span><br />
+<strong>Ejemplo</strong><br />
+Sea <span class="math inline">\(X\)</span> una Variable Aleatoria Continua con la Ley de Probabilidad definida por,
+<span class="math display">\[
+f(x)= \begin{cases}
+      \frac{1}{b-a} &amp; \text{si } x \in [a, b] \\
+      0 &amp; \text{caso contrario }
+   \end{cases}
+\]</span>
+Probar que <span class="math inline">\(f(x)\)</span> es una Ley de Probabilidades. Para ello, basta con probar sus características.
+<span class="math inline">\(\textit{Probemos entonces}\)</span>
+<span class="math display">\[
+\int_{-\infty}^{\infty}f(x) dx = 1
+\]</span>
+por tanto,
+<span class="math display">\[
+\int_{-\infty}^{\infty}f(x) dx = \int_{-\infty}^{a}f(x) dx+\int_{a}^{b}f(x) dx+\int_{b}^{\infty}f(x) dx
+\]</span>
+conocemos, por su definición que <span class="math inline">\(\int_{-\infty}^{a}f(x) dx\)</span> y <span class="math inline">\(\int_{b}^{\infty}f(x) dx\)</span> son cero, entonces,
+<span class="math display">\[
+\int_{-\infty}^{\infty}f(x) dx = \int_{a}^{b} \frac{1}{b-a} dx
+\]</span>
+<span class="math display">\[
+\int_{-\infty}^{\infty}f(x) dx = \frac{1}{b-a} \cdot x \bigg|_{a}^{b}
+\]</span>
+<span class="math display">\[
+\int_{-\infty}^{\infty}f(x) dx = \frac{b-a}{b-a}
+\]</span>
+<span class="math display">\[
+\int_{-\infty}^{\infty}f(x) dx = 1
+\]</span></p>
+</div>
+<div id="varianza-de-la-variable-aleatoria-x" class="section level2 hasAnchor" number="1.18">
+<h2><span class="header-section-number">1.18</span> Varianza de la Variable Aleatoria X<a href="probabilidad.html#varianza-de-la-variable-aleatoria-x" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Definición</strong> Sea <span class="math inline">\((\Omega, \mathscr{P}(\Omega), \mathbf{P})\)</span> un espacio de probabilidad, entonces, la varianza de una variable aleatoria <span class="math inline">\(X\)</span>, está dada por
+<span class="math display">\[
+V(X)=E(X-E(X))^2
+\]</span></p>
+<div id="propiedades-de-la-varianza-aleatoria-de-x" class="section level3 hasAnchor" number="1.18.1">
+<h3><span class="header-section-number">1.18.1</span> Propiedades de la Varianza Aleatoria de X<a href="probabilidad.html#propiedades-de-la-varianza-aleatoria-de-x" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sea <span class="math inline">\(X, Y\)</span> variables aleatorias y <span class="math inline">\(k \in \mathbb{R}\)</span> una constante,</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(V(k\cdot X)=k^2\cdot V(X)\)</span></li>
+<li><span class="math inline">\(V(X+Y)=V(X)+V(Y)+cov(X,Y)\)</span>, si <span class="math inline">\(X, Y\)</span> son dependientes
+<span class="math inline">\(V(X+Y)=V(X)+V(Y)\)</span>, si <span class="math inline">\(X, Y\)</span> son independientes</li>
+<li><span class="math inline">\(V(X)=E(X^2)-E^2(X)\)</span></li>
+</ol>
+<p><span class="math inline">\(\textit{Caso Discreto}\)</span><br />
+<strong>Ejemplo</strong><br />
+Experimento: lanzar dos monedas<br />
+<span class="math inline">\(\underline{Tenemos:}\)</span>
+<span class="math display">\[
+\Omega=\{(cara, cara)(sello, sello)(cara, sello)(sello, cara)\}
+\]</span>
+<span class="math inline">\(X:\)</span> indica el número de caras</p>
+<table style="width:100%;">
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(\Omega\)</span></th>
+<th><span class="math inline">\(X\)</span></th>
+<th><span class="math inline">\(f(x)\)</span></th>
+<th><span class="math inline">\(F(x)\)</span></th>
+<th><span class="math inline">\(E(X)\)</span></th>
+<th><span class="math inline">\(E(X^2)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\((sello, sello)\)</span></td>
+<td>0</td>
+<td><span class="math inline">\(\frac{1}{4}\)</span></td>
+<td><span class="math inline">\(\frac{1}{4}\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0^2 \cdot \frac{1}{4}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\((cara, sello), (sello, cara)\)</span></td>
+<td>1</td>
+<td><span class="math inline">\(\frac{1}{4}\)</span></td>
+<td><span class="math inline">\(\frac{3}{4}\)</span></td>
+<td><span class="math inline">\(\frac{2}{4}\)</span></td>
+<td><span class="math inline">\(1^2\cdot \frac{2}{4}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\((cara, cara)\)</span></td>
+<td>2</td>
+<td><span class="math inline">\(\frac{1}{4}\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(\frac{2}{4}\)</span></td>
+<td><span class="math inline">\(2^2\cdot \frac{1}{4}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>luego,
+<span class="math display">\[
+V(X)=E(X^2)-E^2(X)
+\]</span>
+<span class="math display">\[
+V(X)=\frac{3}{2}-1=\frac{1}{2}
+\]</span></p>
+<p><span class="math inline">\(\textit{Caso Continuo}\)</span><br />
+Sea una Variable Aleatoria Continua una función densidad,
+<span class="math display">\[
+f(x)= \begin{cases}
+      \frac{1}{b-a} &amp; \text{si } x \in [a, b] \\
+      0 &amp; \text{caso contrario }
+   \end{cases}
+\]</span>
+Calcular la <span class="math inline">\(V(X)\)</span>.<br />
+Por ejercicios anteriores, sabemos que <span class="math inline">\(E(X)=\frac{b+a}{2}\,\,\, (1)\)</span><br />
+luego,
+<span class="math display">\[
+E(X^2)=\int_{-\infty}^{\infty}{x^2f(x)dx}=\int_{a}^{b}{x^2\cdot \left(\frac{1}{b-a}\right)dx}
+\]</span>
+<span class="math display">\[
+E(X^2)=\frac{1}{3(b-a)}x^3 \bigg|_a^b=\frac{b^2+ab+a^2}{3}
+\]</span>
+de lo anterior y junto con <span class="math inline">\((1)\)</span>
+<span class="math display">\[
+E(X)=\frac{b^2+ab+a^2}{3}-\left(\frac{b+a}{2} \right)^2
+\]</span>
+finalmente,
+<span class="math display">\[
+E(X)=\frac{(b-a)^2}{12}
+\]</span></p>
+</div>
+</div>
+<div id="principales-distribuciones-de-probabilidad-con-variable-aleatoria-discreta" class="section level2 hasAnchor" number="1.19">
+<h2><span class="header-section-number">1.19</span> Principales Distribuciones de Probabilidad con Variable Aleatoria Discreta<a href="probabilidad.html#principales-distribuciones-de-probabilidad-con-variable-aleatoria-discreta" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="distribución-de-bernoulli" class="section level3 hasAnchor" number="1.19.1">
+<h3><span class="header-section-number">1.19.1</span> Distribución de Bernoulli<a href="probabilidad.html#distribución-de-bernoulli" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+X \sim \textit{Bernoulli}(\mathcal{p})
+\]</span>
+cuando:</p>
+<ul>
+<li><span class="math inline">\(X:\)</span> indica el éxito</li>
+<li><span class="math inline">\(\mathcal{p}=\mathbf{P}(éxito)\)</span></li>
+<li><span class="math inline">\(1-\mathcal{p}= \mathbf{P}(fracaso)=\mathcal{q}\)</span></li>
+</ul>
+<table style="width:100%;">
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(\Omega\)</span></th>
+<th><span class="math inline">\(X\)</span></th>
+<th><span class="math inline">\(f(x)\)</span></th>
+<th><span class="math inline">\(F(x)\)</span></th>
+<th><span class="math inline">\(E(X)\)</span></th>
+<th><span class="math inline">\(E(X^2)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fracaso</td>
+<td>0</td>
+<td><span class="math inline">\(\mathbf{P}(X=0)=\mathcal{q}\)</span></td>
+<td><span class="math inline">\(\mathcal{q}\)</span></td>
+<td><span class="math inline">\(0 \cdot \mathcal{q}\)</span></td>
+<td><span class="math inline">\(0^2 \cdot \mathcal{q}\)</span></td>
+</tr>
+<tr class="even">
+<td>Éxito</td>
+<td>1</td>
+<td><span class="math inline">\(\mathbf{P}(X=1)=\mathcal{p}\)</span></td>
+<td><span class="math inline">\(\mathcal{p}+ \mathcal{q}\)</span></td>
+<td><span class="math inline">\(1 \cdot \mathcal{p}\)</span></td>
+<td><span class="math inline">\(1^2 \cdot \mathcal{p}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(E(X)=\mathcal{p}\)</span><br />
+<span class="math inline">\(V(X)=\mathcal{p}\cdot \mathcal{q}\)</span></p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="ecuacionario.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
