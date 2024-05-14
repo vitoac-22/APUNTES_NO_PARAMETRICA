@@ -597,6 +597,13 @@ cuando:
 $E(X)=\mathcal{p}$ \
 $V(X)=\mathcal{p}\cdot \mathcal{q}$
 
+# Métodos de Estimación de Parámetros
+Respondemos a la pregunta la variable aleatoria $X$, ¿cuáles son los parámetros dada una distribución de probabilidades?. Por ejemplo, conocemos que $X \sim N(\mu, \delta)$, nuestro trabajo consistirá encontrar a qué equivalen esos parámetros.  \
+
+Se lo hará mediante el muestreo, es decir,
+$\textit{Estimar } \rightarrow \hat{\theta} = f(x_1,x_2, \dotsc, x_n)$
+
+## Estimador o Estadístico
 
 
 # Ecuacionario
