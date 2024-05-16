@@ -1,7 +1,7 @@
 ---
 title: "Apuntes - Estadística No Paramétrica"
-author: "Víctor Erick Acaro Bustos"
-date: "Abril, 18 del 2014"
+author: "Víctor E. Acaro B."
+date: "Abril, 18 del 2024"
 output:
   bookdown::gitbook:
     number_sections: true
@@ -597,12 +597,43 @@ cuando:
 $E(X)=\mathcal{p}$ \
 $V(X)=\mathcal{p}\cdot \mathcal{q}$
 
+**Ejemplo**  \
+Experimento: calcular la probabilidad de que al seleccionar a un estudiante, este estudiante sea mujer.  \
+$\underline{\textit{Sabemos}}$ la probabilidad de las mujeres es $\frac{10}{15}$. Para obtener tal proporción, se pidió a un grupo de personas $(total=15)$ se enumeren y posteriormente, se clasificó en mujeres $(10)$ y hombres $(5)$.
+
+| | $X$|$\mathbf{P}(X=x) = f(x)$ | 
+|----------------|----------------|----------------|
+|Mujeres   |1  | $p=\frac{10}{15}$ |
+|Hombres   | 0 | $q=\frac{5}{15}$|
+
+### Distribución Binomial
+\[X \sim \mathbf{B}(n, p) \]
+Donde:
+
++ $X:$ indica el número de éxitos al realizar n-veces el experimento.
++ $p:$ probabilidad de éxito (debe determinarse).
+
+$\textit{Demostración:}$ partamos, que Binomial se deduce de Bernoulli, entonces realizaremos n-veces el experimento con sus respectivos éxitos $E$ y fracasos $F$,
+\[\mathbf{P}(E\cdot E\cdot F \ldots F\cdot F\cdot E) = \mathbf{P}(E) \cdot \mathbf{P}(E) \ldots \mathbf{P}(F) \cdot \mathbf{P}(E)\] 
+\[\mathbf{P}(X=k) = p\cdot p \ldots q \cdot q = p^k \cdot q^{n-k} \]
+finalmente,
+\[\mathbf{P}(X=k)= \binom{n}{k}\, p^k \cdot q^{n-k} = f(k)\]
+
+Siguiendo el cálculo de la Esperanza Matemérica y Varianza, obtenemos:  \
+$E(X)= n \cdot p$  \
+$V(X)=n\cdot p \cdot q$
+
+
+
+
+
+
+
 # Métodos de Estimación de Parámetros
 Respondemos a la pregunta la variable aleatoria $X$, ¿cuáles son los parámetros dada una distribución de probabilidades?. Por ejemplo, conocemos que $X \sim N(\mu, \delta)$, nuestro trabajo consistirá encontrar a qué equivalen esos parámetros.  \
 
 Se lo hará mediante el muestreo, es decir,
 $\textit{Estimar } \rightarrow \hat{\theta} = f(x_1,x_2, \dotsc, x_n)$
-
 ## Estimador o Estadístico
 
 
