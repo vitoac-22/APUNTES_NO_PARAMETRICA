@@ -470,7 +470,8 @@ X: \textit{Mide el número de caras}
 | $(cara, sello)$| 1               |$\mathbf{P}(X=1)=\frac{1}{4}$ |
 | $(sello, sello)$| 0               |$\mathbf{P}(X=2)=\frac{1}{4}$ |
 
-```{r Gráfica - Ley de Probabilidades}
+
+```r
 # Generando los valores
 x <- c(0, 1, 2)
 y <- c(1/4,1/2,1/4)
@@ -481,8 +482,9 @@ plot(x, y, main = " Representación Ley de Probabilidades",
      ylab = "Probabilidad",
      type = "b", col = "black")
 abline(h = 0.5, lty = 3, col = "blue")
-
 ```
+
+<img src="APUNTES-NO-PARAMETRICA_files/figure-html/Gráfica - Ley de Probabilidades-1.png" width="672" />
 
 $\underline{\textit{Caso Continuo}}$ \
 **Ejemplo**  \
@@ -629,39 +631,7 @@ la proporción de mujeres en una aula de clases es $\frac{10}{15}$ y la variable
 Recordemos, que la variable aleatoria $X \sim \mathbf{B}(n,p)$, entonces  \
 
 $\mathbf{P}(X=x)= \binom{n}{x} \, p^{x} \cdot q^{n-k}$  \
-$\mathbf{P}(X=2)= \binom{5}{2} \, \left( \frac{10}{15} \rigth)^{x} \cdot \left( 1- \frac{10}{15} \right)^{n-k}$  \
-$\mathbf{P}(X=2)= \left(0,16 \right)$  \
-Calculemos el valor más probable de obtener (Esperanza Matemática),  \
-$\mathbf{B}(X)= n \cdot p = 5 \cdot \frac{10}{15} = 3,33$
-
-```{r Ejemplo_Binomial, warning=FALSE, message=FALSE}
-# Cálculo de probabilidad, con función de R
-  # Datos
-    n <- 5
-    p <- 10/15
-    x <- 2
-    
-cat( "El valor de la probabilidad es: ",dbinom(x, n, p))
-cat("La Esperanza Matemática es:", n*p)
-
-# Gráfica de Distribución Binomial Densidad
-plot(1:n, dbinom(x, 1:n, p), main = "Distribución Binomial Densidad",
-     xlab = "Valores de x", ylab = "Valores de f(x)",
-     type = "b", col = "red")
-abline(v = n*p, lty = 3, col = "blue")
-
-# Gráfica de Distribución Binomial Acumulada
-plot(1:n, pbinom(x, 1:n, p), main = "Distribución Binomial Acumulada",
-     xlab = "Valores de x", ylab = "Valores de F(x)",
-     type = "b", col = "red")
-abline(h = 1, lty = 3, col = "blue")
-
-
-```
-
-
-
-
+$\mathbf{P}(X=2)= \binom{5}{2} \, left\( \frac{10}{15} \rigth)^{x} \cdot q^{n-k}$  \
 
 
 
