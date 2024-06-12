@@ -659,9 +659,93 @@ abline(h = 1, lty = 3, col = "blue")
 
 ```
 
+### Distribución Geométrica
+\[X \sim \mathbf{G}(p) \]
+Donde:
 
++ $X:$ indica el número de veces que hay que realizar el experiemnto, hasta obtener el primer éxito.
++ $p:$ probabilidad de éxito.
 
+La expresión matemática de la Distribución Geométrica, 
 
+\[\mathbf{P}(X=x)= q^{x-1} p\]
+
+La Esperanza Matemática y su Varianza, son:  \
+$E(X)= \frac{1}{p}$  \
+$V(X)= \frac{1-p}{p^2}$
+
+**Ejercicio**  \
+Considere lo siguiente: \
+la proporción de mujeres en una aula de clases es $\frac{10}{17}$ y la variable aleatoria sigue una distribución de probabilidad $X \sim \mathbf{G}(p)$. En base a los datos proporcionados. ¿Cuál es la probabilidad de que al tercer intento de escoger un estudiante, sea mujer?.  \
+
+$\underline{Tenemos:}$  \
+```{r Geométrica, message=FALSE, error=FALSE, warning=FALSE}
+# Probabilidad de mujeres 10/17
+  # Usaremos la función por defecto en R
+dgeom(x = 3-1, prob = 10/17)
+
+# Al usar la función en R para este distribución. Tener en cuenta su ecuación,
+# ya que la función considere 'x' y no 'x-1' como mencionan los textos.
+
+# Grafiquemos
+# Función Densidad
+x = seq(1,3)
+plot(x, y = dgeom(x-1, prob = 10/17),
+     main = "Distribución Función Densidad - Geométrica",
+     xlab = "Eje x",
+     ylab = " ",
+     type = "b")
+abline(v = 1/(10/17), col = "red")
+
+# Función Acumulada
+plot(x, pgeom(x-1, prob = 10/17),
+     main = "Distribución Función Acumulada - Geométrica",
+     xlab = "Eje x",
+     ylab = " ",
+     type = "b")
+abline(h = 1, col = "red")
+```
+
+Dada una proporción del $58,82 \%$, se espera que al tercer intento de seleccionar a un alumno y que esta sea mujer es del $0,0997$ o $9,97 \%$.
+
+### Distribución Poisson
+\[X \sim \mathbf{P}(\lambda) \]
+Donde:
+
++ $X:$ indica el número de éxitos al realizar un número indeterminado de veces el experimento de Bernoulli.
++ $\lambda :$ indica el número de eventos que se dan en una unidad de tiempo geográfica.
+
+La expresión matemática de la Distribución Geométrica, 
+
+\[\mathbf{P}(X=x)= \frac{\lambda^x}{x!} \cdot e^{-\lambda} \]
+
+La Esperanza Matemática y su Varianza, son:  \
+$E(X)= \lambda$  \
+$V(X)= \lambda$
+
+**Ejercicio**  \
+Se determina que el número de clientes que pueden ser atendidos por una ventanilla de una banco, es de $3 \frac{clientes}{minutos}$. Calcular, la probabilidad de que la ventanilla, según lo determinado atienda a $2 \frac{clientes}{minutos}$.  \
+
+```{r Poisson, message=FALSE, error=FALSE, warning=FALSE}
+dpois(x = 2, lambda = 3)
+
+# Grafiquemos
+# Función Densidad
+x <- 0:10  # Valores de x para los que se calculará la densidad de Poisson
+lambda <- 3  # Parámetro lambda de la distribución de Poisson
+# Calcula la densidad de Poisson para cada valor de x
+densidad <- dpois(x, lambda)
+# Grafica la función de densidad de Poisson
+plot(x, densidad, type = "b", main = "Función de Densidad de Poisson", xlab = "x", ylab = "Densidad")
+abline(v = lambda, col = "red")
+
+# Función Acumulada
+# Calcula la función de distribución acumulada de Poisson para cada valor de x
+acumulada <- ppois(x, lambda)
+# Grafica la función de distribución acumulada de Poisson
+plot(x, acumulada, type = "b", main = "Función de Distribución Acumulada de Poisson", xlab = "x", ylab = "Probabilidad Acumulada")
+abline(h=1, col = "red")
+```
 
 
 

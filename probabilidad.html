@@ -171,6 +171,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.19.1" data-path="probabilidad.html"><a href="probabilidad.html#distribución-de-bernoulli"><i class="fa fa-check"></i><b>1.19.1</b> Distribución de Bernoulli</a></li>
 <li class="chapter" data-level="1.19.2" data-path="probabilidad.html"><a href="probabilidad.html#distribución-binomial"><i class="fa fa-check"></i><b>1.19.2</b> Distribución Binomial</a></li>
+<li class="chapter" data-level="1.19.3" data-path="probabilidad.html"><a href="probabilidad.html#distribución-geométrica"><i class="fa fa-check"></i><b>1.19.3</b> Distribución Geométrica</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="métodos-de-estimación-de-parámetros.html"><a href="métodos-de-estimación-de-parámetros.html"><i class="fa fa-check"></i><b>2</b> Métodos de Estimación de Parámetros</a></li>
@@ -950,6 +951,52 @@ Calculemos el valor más probable de obtener (Esperanza Matemática),<br />
 <span id="cb7-4"><a href="probabilidad.html#cb7-4" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">&quot;b&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
 <span id="cb7-5"><a href="probabilidad.html#cb7-5" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">1</span>, <span class="at">lty =</span> <span class="dv">3</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
 <p><img src="APUNTES-NO-PARAMETRICA_files/figure-html/Ejemplo_Binomial-2.png" width="672" /></p>
+</div>
+<div id="distribución-geométrica" class="section level3 hasAnchor" number="1.19.3">
+<h3><span class="header-section-number">1.19.3</span> Distribución Geométrica<a href="probabilidad.html#distribución-geométrica" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[X \sim \mathbf{G}(p) \]</span>
+Donde:</p>
+<ul>
+<li><span class="math inline">\(X:\)</span> indica el número de veces que hay que realizar el experiemnto, hasta obtener el primer éxito.</li>
+<li><span class="math inline">\(p:\)</span> probabilidad de éxito.</li>
+</ul>
+<p>La expresión matemática de la Distribución Geométrica,</p>
+<p><span class="math display">\[\mathbf{P}(X=x)= q^{x-1} p\]</span></p>
+<p>La Esperanza Matemática y su Varianza, son:<br />
+<span class="math inline">\(E(X)= \frac{1}{p}\)</span><br />
+<span class="math inline">\(V(X)= \frac{1-p}{p^2}\)</span></p>
+<p><strong>Ejercicio</strong><br />
+Considere lo siguiente:<br />
+la proporción de mujeres en una aula de clases es <span class="math inline">\(\frac{10}{17}\)</span> y la variable aleatoria sigue una distribución de probabilidad <span class="math inline">\(X \sim \mathbf{G}(p)\)</span>. En base a los datos proporcionados. ¿Cuál es la probabilidad de que al tercer intento de escoger un estudiante, sea mujer?.<br />
+</p>
+<p><span class="math inline">\(\underline{Tenemos:}\)</span><br />
+</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="probabilidad.html#cb8-1" tabindex="-1"></a><span class="co"># Probabilidad de mujeres 10/17</span></span>
+<span id="cb8-2"><a href="probabilidad.html#cb8-2" tabindex="-1"></a>  <span class="co"># Usaremos la función por defecto en R</span></span>
+<span id="cb8-3"><a href="probabilidad.html#cb8-3" tabindex="-1"></a><span class="fu">dgeom</span>(<span class="at">x =</span> <span class="dv">3-1</span>, <span class="at">prob =</span> <span class="dv">10</span><span class="sc">/</span><span class="dv">17</span>)</span></code></pre></div>
+<pre><code>## [1] 0.0997354</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="probabilidad.html#cb10-1" tabindex="-1"></a><span class="co"># Al usar la función en R para este distribución. Tener en cuenta su ecuación,</span></span>
+<span id="cb10-2"><a href="probabilidad.html#cb10-2" tabindex="-1"></a><span class="co"># ya que la función considere &#39;x&#39; y no &#39;x-1&#39; como mencionan los textos.</span></span>
+<span id="cb10-3"><a href="probabilidad.html#cb10-3" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="probabilidad.html#cb10-4" tabindex="-1"></a><span class="co"># Grafiquemos</span></span>
+<span id="cb10-5"><a href="probabilidad.html#cb10-5" tabindex="-1"></a><span class="co"># Función Densidad</span></span>
+<span id="cb10-6"><a href="probabilidad.html#cb10-6" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">3</span>)</span>
+<span id="cb10-7"><a href="probabilidad.html#cb10-7" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">y =</span> <span class="fu">dgeom</span>(x<span class="dv">-1</span>, <span class="at">prob =</span> <span class="dv">10</span><span class="sc">/</span><span class="dv">17</span>),</span>
+<span id="cb10-8"><a href="probabilidad.html#cb10-8" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Distribución Función Densidad - Geométrica&quot;</span>,</span>
+<span id="cb10-9"><a href="probabilidad.html#cb10-9" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Eje x&quot;</span>,</span>
+<span id="cb10-10"><a href="probabilidad.html#cb10-10" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot; &quot;</span>,</span>
+<span id="cb10-11"><a href="probabilidad.html#cb10-11" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">&quot;b&quot;</span>)</span>
+<span id="cb10-12"><a href="probabilidad.html#cb10-12" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">10</span><span class="sc">/</span><span class="dv">17</span>), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="APUNTES-NO-PARAMETRICA_files/figure-html/Geom%C3%A9trica-1.png" width="672" /></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="probabilidad.html#cb11-1" tabindex="-1"></a><span class="co"># Función Acumulada</span></span>
+<span id="cb11-2"><a href="probabilidad.html#cb11-2" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="fu">pgeom</span>(x<span class="dv">-1</span>, <span class="at">prob =</span> <span class="dv">10</span><span class="sc">/</span><span class="dv">17</span>),</span>
+<span id="cb11-3"><a href="probabilidad.html#cb11-3" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Distribución Función Acumulada - Geométrica&quot;</span>,</span>
+<span id="cb11-4"><a href="probabilidad.html#cb11-4" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Eje x&quot;</span>,</span>
+<span id="cb11-5"><a href="probabilidad.html#cb11-5" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot; &quot;</span>,</span>
+<span id="cb11-6"><a href="probabilidad.html#cb11-6" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">&quot;b&quot;</span>)</span>
+<span id="cb11-7"><a href="probabilidad.html#cb11-7" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="APUNTES-NO-PARAMETRICA_files/figure-html/Geom%C3%A9trica-2.png" width="672" /></p>
+<p>Dada una proporción del <span class="math inline">\(58,82 \%\)</span>, se espera que al tercer intento de seleccionar a un alumno y que esta sea mujer es del <span class="math inline">\(0,0997\)</span> o <span class="math inline">\(9,97 \%\)</span>.</p>
 </div>
 </div>
 </div>
