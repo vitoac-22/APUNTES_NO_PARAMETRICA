@@ -172,6 +172,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.19.1" data-path="probabilidad.html"><a href="probabilidad.html#distribución-de-bernoulli"><i class="fa fa-check"></i><b>1.19.1</b> Distribución de Bernoulli</a></li>
 <li class="chapter" data-level="1.19.2" data-path="probabilidad.html"><a href="probabilidad.html#distribución-binomial"><i class="fa fa-check"></i><b>1.19.2</b> Distribución Binomial</a></li>
 <li class="chapter" data-level="1.19.3" data-path="probabilidad.html"><a href="probabilidad.html#distribución-geométrica"><i class="fa fa-check"></i><b>1.19.3</b> Distribución Geométrica</a></li>
+<li class="chapter" data-level="1.19.4" data-path="probabilidad.html"><a href="probabilidad.html#distribución-poisson"><i class="fa fa-check"></i><b>1.19.4</b> Distribución Poisson</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="métodos-de-estimación-de-parámetros.html"><a href="métodos-de-estimación-de-parámetros.html"><i class="fa fa-check"></i><b>2</b> Métodos de Estimación de Parámetros</a></li>
@@ -997,6 +998,42 @@ la proporción de mujeres en una aula de clases es <span class="math inline">\(\
 <span id="cb11-7"><a href="probabilidad.html#cb11-7" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="APUNTES-NO-PARAMETRICA_files/figure-html/Geom%C3%A9trica-2.png" width="672" /></p>
 <p>Dada una proporción del <span class="math inline">\(58,82 \%\)</span>, se espera que al tercer intento de seleccionar a un alumno y que esta sea mujer es del <span class="math inline">\(0,0997\)</span> o <span class="math inline">\(9,97 \%\)</span>.</p>
+</div>
+<div id="distribución-poisson" class="section level3 hasAnchor" number="1.19.4">
+<h3><span class="header-section-number">1.19.4</span> Distribución Poisson<a href="probabilidad.html#distribución-poisson" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[X \sim \mathbf{P}(\lambda) \]</span>
+Donde:</p>
+<ul>
+<li><span class="math inline">\(X:\)</span> indica el número de éxitos al realizar un número indeterminado de veces el experimento de Bernoulli.</li>
+<li><span class="math inline">\(\lambda :\)</span> indica el número de eventos que se dan en una unidad de tiempo geográfica.</li>
+</ul>
+<p>La expresión matemática de la Distribución Geométrica,</p>
+<p><span class="math display">\[\mathbf{P}(X=x)= \frac{\lambda^x}{x!} \cdot e^{-\lambda} \]</span></p>
+<p>La Esperanza Matemática y su Varianza, son:<br />
+<span class="math inline">\(E(X)= \lambda\)</span><br />
+<span class="math inline">\(V(X)= \lambda\)</span></p>
+<p><strong>Ejercicio</strong><br />
+Se determina que el número de clientes que pueden ser atendidos por una ventanilla de una banco, es de <span class="math inline">\(3 \frac{clientes}{minutos}\)</span>. Calcular, la probabilidad de que la ventanilla, según lo determinado atienda a <span class="math inline">\(2 \frac{clientes}{minutos}\)</span>.<br />
+</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="probabilidad.html#cb12-1" tabindex="-1"></a><span class="fu">dpois</span>(<span class="at">x =</span> <span class="dv">2</span>, <span class="at">lambda =</span> <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] 0.2240418</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="probabilidad.html#cb14-1" tabindex="-1"></a><span class="co"># Grafiquemos</span></span>
+<span id="cb14-2"><a href="probabilidad.html#cb14-2" tabindex="-1"></a><span class="co"># Función Densidad</span></span>
+<span id="cb14-3"><a href="probabilidad.html#cb14-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>  <span class="co"># Valores de x para los que se calculará la densidad de Poisson</span></span>
+<span id="cb14-4"><a href="probabilidad.html#cb14-4" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="dv">3</span>  <span class="co"># Parámetro lambda de la distribución de Poisson</span></span>
+<span id="cb14-5"><a href="probabilidad.html#cb14-5" tabindex="-1"></a><span class="co"># Calcula la densidad de Poisson para cada valor de x</span></span>
+<span id="cb14-6"><a href="probabilidad.html#cb14-6" tabindex="-1"></a>densidad <span class="ot">&lt;-</span> <span class="fu">dpois</span>(x, lambda)</span>
+<span id="cb14-7"><a href="probabilidad.html#cb14-7" tabindex="-1"></a><span class="co"># Grafica la función de densidad de Poisson</span></span>
+<span id="cb14-8"><a href="probabilidad.html#cb14-8" tabindex="-1"></a><span class="fu">plot</span>(x, densidad, <span class="at">type =</span> <span class="st">&quot;b&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Función de Densidad de Poisson&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;x&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Densidad&quot;</span>)</span>
+<span id="cb14-9"><a href="probabilidad.html#cb14-9" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> lambda, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="APUNTES-NO-PARAMETRICA_files/figure-html/Poisson-1.png" width="672" /></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="probabilidad.html#cb15-1" tabindex="-1"></a><span class="co"># Función Acumulada</span></span>
+<span id="cb15-2"><a href="probabilidad.html#cb15-2" tabindex="-1"></a><span class="co"># Calcula la función de distribución acumulada de Poisson para cada valor de x</span></span>
+<span id="cb15-3"><a href="probabilidad.html#cb15-3" tabindex="-1"></a>acumulada <span class="ot">&lt;-</span> <span class="fu">ppois</span>(x, lambda)</span>
+<span id="cb15-4"><a href="probabilidad.html#cb15-4" tabindex="-1"></a><span class="co"># Grafica la función de distribución acumulada de Poisson</span></span>
+<span id="cb15-5"><a href="probabilidad.html#cb15-5" tabindex="-1"></a><span class="fu">plot</span>(x, acumulada, <span class="at">type =</span> <span class="st">&quot;b&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Función de Distribución Acumulada de Poisson&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;x&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probabilidad Acumulada&quot;</span>)</span>
+<span id="cb15-6"><a href="probabilidad.html#cb15-6" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">1</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="APUNTES-NO-PARAMETRICA_files/figure-html/Poisson-2.png" width="672" /></p>
 </div>
 </div>
 </div>

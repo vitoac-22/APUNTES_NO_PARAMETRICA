@@ -747,6 +747,7 @@ plot(x, acumulada, type = "b", main = "Función de Distribución Acumulada de Po
 abline(h=1, col = "red")
 ```
 
+Del resultado, tenemos que el $22,40 \%$ la ventanilla a evaluar esté atendiendo a $2 \frac{clientes}{minutos}$.
 
 
 
