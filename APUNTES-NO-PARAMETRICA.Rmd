@@ -684,7 +684,7 @@ $\underline{Tenemos:}$  \
   # Usaremos la función por defecto en R
 dgeom(x = 3-1, prob = 10/17)
 
-# Al usar la función en R para este distribución. Tener en cuenta su ecuación,
+# Al usar la función en R para esta distribución. Tener en cuenta su ecuación,
 # ya que la función considere 'x' y no 'x-1' como mencionan los textos.
 
 # Grafiquemos
@@ -779,6 +779,8 @@ x <- 2  # Número de hombres que queremos en la muestra
 probabilidad <- dhyper(x, n_hombres, n_mujeres, n_seleccionados)
 probabilidad
 ```
+
+La probabilidad de obtener $2$ hombres de un grupo de $5$ personas seleccionadas, es del $40,72 \%$.
 
 ```{r}
 # Gráficas para Dist. Hipergeométrica
