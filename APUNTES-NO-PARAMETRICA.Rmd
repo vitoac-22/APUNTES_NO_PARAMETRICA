@@ -749,6 +749,74 @@ abline(h=1, col = "red")
 
 Del resultado, tenemos que el $22,40 \%$ la ventanilla a evaluar esté atendiendo a $2 \frac{clientes}{minutos}$.
 
+### Distribución Hipergeométrica
+\[X \sim \mathbf{HG}(N,K,n) \]
+Donde:
+
++ $X:$ indica el número de elementos de la categoría o grupo de interés (a) seleccionados de entre los (n) escogidos.
++ $N: N = a + b$
+
+La expresión matemática de la Distribución Hipergeométrica, 
+
+\[\mathbf{P}(X=x)= \frac{\binom{a}{x} \binom{n}{n-x}}{\binom{N}{n}}\]
+
+La Esperanza Matemática y su Varianza, son:  \
+$E(X)= \frac{n \cdot a}{N}$  \
+$V(X)= \frac{n \cdot a}{N} \cdot \frac{N-a}{N} \cdot \frac{N-n}{N-1}$
+
+**Ejercicio**  \
+Calcular la probabilidad de tener 2 hombres de entre los 5 seleccionados. Teniendo en cuenta que $n=5$, el total de hombres es $7$ y de mujeres $10$.
+
+```{r HiperGeométrica}
+# Parámetros
+n_hombres <- 7
+n_mujeres <- 10
+total_personas <- n_hombres + n_mujeres
+n_seleccionados <- 5
+x <- 2  # Número de hombres que queremos en la muestra
+
+# Cálculo de la probabilidad hipergeométrica
+probabilidad <- dhyper(x, n_hombres, n_mujeres, n_seleccionados)
+probabilidad
+```
+
+```{r}
+# Gráficas para Dist. Hipergeométrica
+# Valores posibles de x (número de hombres en la muestra)
+x_vals <- 0:n_seleccionados
+
+# Función de densidad
+densidad <- dhyper(x_vals, n_hombres, n_mujeres, n_seleccionados)
+
+# Graficar la función de densidad
+plot(x_vals, densidad, type = "h", main = "Función de Densidad Hipergeométrica",
+     xlab = "Número de hombres en la muestra", ylab = "Densidad",
+     lwd = 2, col = "blue")
+points(x_vals, densidad, pch = 16, col = "blue")
+
+# Función de distribución acumulada
+acumulada <- phyper(x_vals, n_hombres, n_mujeres, n_seleccionados)
+
+# Graficar la función de distribución acumulada
+plot(x_vals, acumulada, type = "s", main = "Función de Distribución Acumulada Hipergeométrica",
+     xlab = "Número de hombres en la muestra", ylab = "Probabilidad Acumulada",
+     lwd = 2, col = "blue")
+points(x_vals, acumulada, pch = 16, col = "blue")
+
+```
+
+## Principales Distribuciones de Probabilidad con Variable Aleatoria Continua
+
+
+
+
+
+
+
+
+
+
+
 
 
 

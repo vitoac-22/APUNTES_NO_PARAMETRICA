@@ -173,7 +173,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.19.2" data-path="probabilidad.html"><a href="probabilidad.html#distribución-binomial"><i class="fa fa-check"></i><b>1.19.2</b> Distribución Binomial</a></li>
 <li class="chapter" data-level="1.19.3" data-path="probabilidad.html"><a href="probabilidad.html#distribución-geométrica"><i class="fa fa-check"></i><b>1.19.3</b> Distribución Geométrica</a></li>
 <li class="chapter" data-level="1.19.4" data-path="probabilidad.html"><a href="probabilidad.html#distribución-poisson"><i class="fa fa-check"></i><b>1.19.4</b> Distribución Poisson</a></li>
+<li class="chapter" data-level="1.19.5" data-path="probabilidad.html"><a href="probabilidad.html#distribución-hipergeométrica"><i class="fa fa-check"></i><b>1.19.5</b> Distribución Hipergeométrica</a></li>
 </ul></li>
+<li class="chapter" data-level="1.20" data-path="probabilidad.html"><a href="probabilidad.html#principales-distribuciones-de-probabilidad-con-variable-aleatoria-continua"><i class="fa fa-check"></i><b>1.20</b> Principales Distribuciones de Probabilidad con Variable Aleatoria Continua</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="métodos-de-estimación-de-parámetros.html"><a href="métodos-de-estimación-de-parámetros.html"><i class="fa fa-check"></i><b>2</b> Métodos de Estimación de Parámetros</a></li>
 <li class="chapter" data-level="3" data-path="ecuacionario.html"><a href="ecuacionario.html"><i class="fa fa-check"></i><b>3</b> Ecuacionario</a>
@@ -1034,7 +1036,60 @@ Se determina que el número de clientes que pueden ser atendidos por una ventani
 <span id="cb15-5"><a href="probabilidad.html#cb15-5" tabindex="-1"></a><span class="fu">plot</span>(x, acumulada, <span class="at">type =</span> <span class="st">&quot;b&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Función de Distribución Acumulada de Poisson&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;x&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probabilidad Acumulada&quot;</span>)</span>
 <span id="cb15-6"><a href="probabilidad.html#cb15-6" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">1</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="APUNTES-NO-PARAMETRICA_files/figure-html/Poisson-2.png" width="672" /></p>
+<p>Del resultado, tenemos que el <span class="math inline">\(22,40 \%\)</span> la ventanilla a evaluar esté atendiendo a <span class="math inline">\(2 \frac{clientes}{minutos}\)</span>.</p>
 </div>
+<div id="distribución-hipergeométrica" class="section level3 hasAnchor" number="1.19.5">
+<h3><span class="header-section-number">1.19.5</span> Distribución Hipergeométrica<a href="probabilidad.html#distribución-hipergeométrica" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[X \sim \mathbf{HG}(N,K,n) \]</span>
+Donde:</p>
+<ul>
+<li><span class="math inline">\(X:\)</span> indica el número de elementos de la categoría o grupo de interés (a) seleccionados de entre los (n) escogidos.</li>
+<li><span class="math inline">\(N: N = a + b\)</span></li>
+</ul>
+<p>La expresión matemática de la Distribución Hipergeométrica,</p>
+<p><span class="math display">\[\mathbf{P}(X=x)= \frac{\binom{a}{x} \binom{n}{n-x}}{\binom{N}{n}}\]</span></p>
+<p>La Esperanza Matemática y su Varianza, son:<br />
+<span class="math inline">\(E(X)= \frac{n \cdot a}{N}\)</span><br />
+<span class="math inline">\(V(X)= \frac{n \cdot a}{N} \cdot \frac{N-a}{N} \cdot \frac{N-n}{N-1}\)</span></p>
+<p><strong>Ejercicio</strong><br />
+Calcular la probabilidad de tener 2 hombres de entre los 5 seleccionados. Teniendo en cuenta que <span class="math inline">\(n=5\)</span>, el total de hombres es <span class="math inline">\(7\)</span> y de mujeres <span class="math inline">\(10\)</span>.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="probabilidad.html#cb16-1" tabindex="-1"></a><span class="co"># Parámetros</span></span>
+<span id="cb16-2"><a href="probabilidad.html#cb16-2" tabindex="-1"></a>n_hombres <span class="ot">&lt;-</span> <span class="dv">7</span></span>
+<span id="cb16-3"><a href="probabilidad.html#cb16-3" tabindex="-1"></a>n_mujeres <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb16-4"><a href="probabilidad.html#cb16-4" tabindex="-1"></a>total_personas <span class="ot">&lt;-</span> n_hombres <span class="sc">+</span> n_mujeres</span>
+<span id="cb16-5"><a href="probabilidad.html#cb16-5" tabindex="-1"></a>n_seleccionados <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb16-6"><a href="probabilidad.html#cb16-6" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span>  <span class="co"># Número de hombres que queremos en la muestra</span></span>
+<span id="cb16-7"><a href="probabilidad.html#cb16-7" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="probabilidad.html#cb16-8" tabindex="-1"></a><span class="co"># Cálculo de la probabilidad hipergeométrica</span></span>
+<span id="cb16-9"><a href="probabilidad.html#cb16-9" tabindex="-1"></a>probabilidad <span class="ot">&lt;-</span> <span class="fu">dhyper</span>(x, n_hombres, n_mujeres, n_seleccionados)</span>
+<span id="cb16-10"><a href="probabilidad.html#cb16-10" tabindex="-1"></a>probabilidad</span></code></pre></div>
+<pre><code>## [1] 0.4072398</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="probabilidad.html#cb18-1" tabindex="-1"></a><span class="co"># Gráficas para Dist. Hipergeométrica</span></span>
+<span id="cb18-2"><a href="probabilidad.html#cb18-2" tabindex="-1"></a><span class="co"># Valores posibles de x (número de hombres en la muestra)</span></span>
+<span id="cb18-3"><a href="probabilidad.html#cb18-3" tabindex="-1"></a>x_vals <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span>n_seleccionados</span>
+<span id="cb18-4"><a href="probabilidad.html#cb18-4" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="probabilidad.html#cb18-5" tabindex="-1"></a><span class="co"># Función de densidad</span></span>
+<span id="cb18-6"><a href="probabilidad.html#cb18-6" tabindex="-1"></a>densidad <span class="ot">&lt;-</span> <span class="fu">dhyper</span>(x_vals, n_hombres, n_mujeres, n_seleccionados)</span>
+<span id="cb18-7"><a href="probabilidad.html#cb18-7" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="probabilidad.html#cb18-8" tabindex="-1"></a><span class="co"># Graficar la función de densidad</span></span>
+<span id="cb18-9"><a href="probabilidad.html#cb18-9" tabindex="-1"></a><span class="fu">plot</span>(x_vals, densidad, <span class="at">type =</span> <span class="st">&quot;h&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Función de Densidad Hipergeométrica&quot;</span>,</span>
+<span id="cb18-10"><a href="probabilidad.html#cb18-10" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Número de hombres en la muestra&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Densidad&quot;</span>,</span>
+<span id="cb18-11"><a href="probabilidad.html#cb18-11" tabindex="-1"></a>     <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb18-12"><a href="probabilidad.html#cb18-12" tabindex="-1"></a><span class="fu">points</span>(x_vals, densidad, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<p><img src="APUNTES-NO-PARAMETRICA_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="probabilidad.html#cb19-1" tabindex="-1"></a><span class="co"># Función de distribución acumulada</span></span>
+<span id="cb19-2"><a href="probabilidad.html#cb19-2" tabindex="-1"></a>acumulada <span class="ot">&lt;-</span> <span class="fu">phyper</span>(x_vals, n_hombres, n_mujeres, n_seleccionados)</span>
+<span id="cb19-3"><a href="probabilidad.html#cb19-3" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="probabilidad.html#cb19-4" tabindex="-1"></a><span class="co"># Graficar la función de distribución acumulada</span></span>
+<span id="cb19-5"><a href="probabilidad.html#cb19-5" tabindex="-1"></a><span class="fu">plot</span>(x_vals, acumulada, <span class="at">type =</span> <span class="st">&quot;s&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Función de Distribución Acumulada Hipergeométrica&quot;</span>,</span>
+<span id="cb19-6"><a href="probabilidad.html#cb19-6" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Número de hombres en la muestra&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probabilidad Acumulada&quot;</span>,</span>
+<span id="cb19-7"><a href="probabilidad.html#cb19-7" tabindex="-1"></a>     <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb19-8"><a href="probabilidad.html#cb19-8" tabindex="-1"></a><span class="fu">points</span>(x_vals, acumulada, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<p><img src="APUNTES-NO-PARAMETRICA_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
+</div>
+</div>
+<div id="principales-distribuciones-de-probabilidad-con-variable-aleatoria-continua" class="section level2 hasAnchor" number="1.20">
+<h2><span class="header-section-number">1.20</span> Principales Distribuciones de Probabilidad con Variable Aleatoria Continua<a href="probabilidad.html#principales-distribuciones-de-probabilidad-con-variable-aleatoria-continua" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
 </div>
             </section>
